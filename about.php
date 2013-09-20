@@ -13,7 +13,7 @@
 					<section>
 						<article class="articolo">
 							<header>
-								<fieldset>  
+								<fieldset>
 									<h3>About page.</h3>
 									<hr>
 									<p>This is the about page that contain some information on ArtEditor. In the future it will be updated and some other feature will be added.</p>	 
