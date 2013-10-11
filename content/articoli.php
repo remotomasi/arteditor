@@ -30,7 +30,7 @@ if (empty($authorarts)) {
 	by <?php 
 				$authorarts = Articolo::getAutoreArticolo(htmlspecialchars($item->getIDArticolo()));
 				foreach ($authorarts as $authorart) {
-					echo $authorart['Cognome'] . ' ' . $authorart['Nome'];
+					echo '<i><b>' . $authorart['Cognome'] . ' ' . $authorart['Nome'] . '</b></i>';
 				} ?></p>
 	<p><?php echo htmlspecialchars($item->getContenuto()); 	
 			if (sizeof($items) > 1) {

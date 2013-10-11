@@ -82,12 +82,11 @@ class Articolo
   public function getIDArticolo () {
   	return $this->id_articolo;
   }
-  
+    
   /**
    * 
    * @return Ambigous <string, Articolo>|boolean
    */
-  
   static public function getArticoli() {
   	// clear the results
   	$items = '';
@@ -113,6 +112,33 @@ class Articolo
   	catch(Exception $e) {
   		return false;
   	}
+  
+  }
+
+  /**
+   * 
+   * @param strng $titolo
+   * @param string $contenuto
+   * @param integer $id_utente
+   */
+  static public function insertArticolo($titolo, $contenuto, $id_utente) {
+  	// clear the results
+  	$items = '';
+  	// Get the connection
+  	$connection = Database::getConnection();
+  	// Set up the query
+  	$query = "INSERT INTO articolo (titolo, contenuto, data_pubblicazione, id_utente) VALUES "
+  			. "('$titolo', '$contenuto', 'now()', 0)";
+  	
+  	echo $query;
+  	  	
+  	$result = '';
+  	// Run the query
+	if ($result = $connection->query($query)) {
+		echo "Unable to add row";
+	} else {
+		echo "Row successful added <br />";
+	}
   
   }
   
