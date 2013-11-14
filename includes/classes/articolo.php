@@ -117,7 +117,7 @@ class Articolo
 
   /**
    * 
-   * @param strng $titolo
+   * @param string $titolo
    * @param string $contenuto
    * @param integer $id_utente
    */

@@ -1,8 +1,4 @@
-<?php 
-	include 'includes/classes/articolo.php';
-?>
-
-<form action="insertArticolo.php" method="post">
+<form action="content/insertArticolo.php" method="post">
 	<fieldset>
 		<legend><i>Inserimento post</i></legend>
 			

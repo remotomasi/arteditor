@@ -29,4 +29,4 @@ function __autoload($class_name) {
 }
 
 // include required files
-require_once 'includes/functions.php';
+require_once 'functions.php';

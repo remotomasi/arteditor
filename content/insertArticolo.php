@@ -1,6 +1,13 @@
+<?php 
+	require_once '../includes/init.php';
+	require_once '../includes/classes/articolo.php';
+?>
+
 <?php
-if (isset($_POST['save']) AND $_POST['save'] == 'Save') {
 
-	Articolo::insertArticolo($_POST['titolo'], $_POST['contenuto'], 0);
-}
+	//__autoload('articolo');
 
+	if (isset($_POST['save']) AND $_POST['save'] == 'Save') {
+		$art = new Articolo();
+		Articolo::insertArticolo($_POST['titolo'], $_POST['contenuto'], 0);
+	}
