@@ -106,7 +106,7 @@ a:hover, a:active, a:focus {
  * Layout divs
  */
 #container {
-	width: 100%;
+	width: 90%;
 	/*background: #ffffff;*/
 	margin: 0 auto;
 }
@@ -131,7 +131,7 @@ nav {
 	left: 0;
 	width: 100%;
 	background: #3b5998;
-	border-radius: 0px 0px 10px 10px;
+	/* border-radius: 0px 0px 10px 10px; */
 	box-shadow: 4px 4px 4px #ccc;
 	border-bottom: solid thin black;
 	color: #ffffff;
@@ -147,17 +147,17 @@ nav ul {
 nav ul li{
 	float: left;
 }
-	nav ul li h3 {
+	nav ul li h2 {
 		color: #fff;
-		background: #10e907;
-		border: 1px solid #000;
+		background: 3b5998; /*#10e907;*/
+		/*border: 1px solid #000;*/
 	}
 	nav ul li a {
 		display: block;
 		margin-right: 20px;
 		width: 140 px;
 		font-size: 14px;
-		line-height: 44px;
+		line-height: 28px;
 		text-align: center;
 		text-decoration: none;	
 		/*text-shadow: 2px 2px #afafaf;*/
@@ -165,7 +165,7 @@ nav ul li{
 	}
 		nav ul li a:hover {
 			font-size: 16px;
-			color: #ccff33; /*#10e907;*/
+			color: #CCFF33; /*#10e907;*/
 		}
 		nav ul li.selected a {
 			color: #ccc;
@@ -173,14 +173,14 @@ nav ul li{
 		nav ul li.subscribe a {
 			color: #fff;
 			margin-left: 22px;
-			padding-left: 33px;
+			padding-left: 28px;
 			text-align: left;
 			background: #3b5998 left center no-repeat;
 		}
 
 #content{
 	display:table;
-	padding-top: 45px;
+	padding-top: 25px;
 }
 	#mainContent {
 		display: table-cell;
@@ -266,7 +266,8 @@ nav ul li{
 
 footer {
 	background-color: #3b5998;
-	position: relative;
+	position: relative;	
+	width: 100%;
 	color: #ffffff;
 	clear: both;
 	border-top: solid thin black;
@@ -391,7 +392,7 @@ ul.ulfancy li {
 	background-color: #f9f7f2;
 }
 
-ul.ulfancy li.row0 {
+ul.ulfancy li.row1 {
 	background-color: #f1ebe0;
 }
 

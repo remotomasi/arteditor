@@ -23,17 +23,17 @@ if (empty($authorarts)) {
 }
 ?>
 
-<?php foreach ($items as $i=>$item) : ?>
-	<h2><?php echo htmlspecialchars($item->getTitolo()); ?></h2>
-	<p>Postato il <?php echo substr(htmlspecialchars($item->getDataPubblicazione()), 0, 10); ?>	
-	by <?php 
-				$authorarts = Articolo::getAutoreArticolo(htmlspecialchars($item->getIDArticolo()));
-				foreach ($authorarts as $authorart) {
-					echo '<i><b>' . $authorart['Cognome'] . ' ' . $authorart['Nome'] . '</b></i>';
-				} ?></p>
-	<p><?php echo htmlspecialchars($item->getContenuto()); 	
-			if (sizeof($items) > 1) {
-				echo '<br /><hr>';
-			}
-			else echo '<br />';?></p>
-<?php endforeach; ?>
+<ul class="ulfancy">
+	<?php foreach ($items as $i=>$item) : ?>
+	<li class="row<?php echo $i % 2; ?>">
+		<h2><?php echo htmlspecialchars($item->getTitolo()); ?></h2>
+		<p>Postato il <?php echo substr(htmlspecialchars($item->getDataPubblicazione()), 0, 10); ?>	
+		by <?php 
+					$authorarts = Articolo::getAutoreArticolo(htmlspecialchars($item->getIDArticolo()));
+					foreach ($authorarts as $authorart) {
+						echo '<i><b>' . $authorart['Cognome'] . ' ' . $authorart['Nome'] . '</b></i>';
+					} ?></p>
+		<p><?php echo htmlspecialchars($item->getContenuto()); ?></p>
+	</li>
+	<?php endforeach; ?>
+</ul>

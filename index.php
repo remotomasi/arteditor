@@ -63,28 +63,27 @@ require_once(__DIR__.'/includes/init.php');
 		</aside>
 	</div>	
 		
-	<div class="message">
+	<!-- div class="message"-->
   	  <?php 
-	  	  $connection = Database::getConnection();
+	/*  $connection = Database::getConnection();
 	  	  if ($result = $connection->query("SHOW TABLES")) {
 	  	  	$count = $result->num_rows;
 	  	  	echo "Tables: ($count)<br />";
-	  	  	/*while ($row = $result->fetch_array()) {
-				echo $row[0]. '<br />';
-			}
-			*/
+	  	  	//while ($row = $result->fetch_array()) {
+			//	echo $row[0]. '<br />';
+			//}
+			//
 	  	  }
-	  	  else echo '<p> Ciao!</p>'
+	  	  else echo '<p> Ciao!</p>' */
       ?>
-	</div><!-- end message -->
+	<!-- /div --><!-- end message -->
 	
 	<!-- <div class="content">
 	</div> --><!-- end content -->
 	
-	<footer>
-		<?php include 'content/footer.php';?>
-	</footer>
 
 </div><!-- end container -->
+
+	<?php include 'content/footer.php';?>
 </body>
 </html>
