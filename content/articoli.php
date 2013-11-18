@@ -10,7 +10,6 @@
 * @license    GNU General Public License
 * @since      Since Release 1.0
 */
-include 'includes/classes/articolo.php';
 // Get the articolo information
 $items = Articolo::getArticoli();
 //$authorarts = Articolo::getAutoreArticolo(1);

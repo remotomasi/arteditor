@@ -13,8 +13,8 @@ function loadContent($where, $default='') {
   $content = (empty($content)) ? $default : $content;
   // If you found have content, then get it and pass it back
   if ($content) {
-  // sanitize the data to prevent hacking.
-  $html = include 'content/'.$content.'.php';
-  return $html;
+  	// sanitize the data to prevent hacking.
+  	$html = include $where.$content.'.php';	// 'content/'
   }
+  return $html;
 }

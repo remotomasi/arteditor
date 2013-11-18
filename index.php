@@ -10,7 +10,7 @@
  * @license    GNU General Public License
  * @since      Since Release 1.0
  */
-require_once 'includes/init.php';
+require_once(__DIR__.'/includes/init.php');
 //require_once 'includes/classes/database.php';
 ?>
 <!DOCTYPE html>
@@ -31,7 +31,7 @@ require_once 'includes/init.php';
 				<article class="articolo">
 					<header>
 						<fieldset>
-							<?php loadContent('content', 'articoli'); ?>	 
+							<?php loadContent('content/', 'articoli'); ?>	 
 						</fieldset>
 					</header>
 				</article>

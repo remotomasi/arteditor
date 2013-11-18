@@ -165,7 +165,7 @@ nav ul li{
 	}
 		nav ul li a:hover {
 			font-size: 16px;
-			color: #008080; /*#10e907;*/
+			color: #ccff33; /*#10e907;*/
 		}
 		nav ul li.selected a {
 			color: #ccc;

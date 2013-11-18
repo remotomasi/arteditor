@@ -128,7 +128,7 @@ class Articolo
   	$connection = Database::getConnection();
   	// Set up the query
   	$query = "INSERT INTO articolo (titolo, contenuto, data_pubblicazione, id_utente) VALUES "
-  			. "('$titolo', '$contenuto', 'now()', 0)";
+  			. "('$titolo', '$contenuto', 'now()', $id_utente)";
   	
   	echo $query;
   	  	
