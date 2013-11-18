@@ -20,6 +20,7 @@
 					<article class="articolo">
 						<header>
 							<fieldset>
+								<h3></h3><h3></h3><h3></h3>
 								<h3>Insert Article</h3>
 								<hr>
 								<p>This is the about page the possibility to add an article in the blog. In this page you can insert the essential datas to create a new post.</p>	 
@@ -52,11 +53,7 @@
 				</fieldset>
 			</aside>
 		</div>
-
-	<footer>
-		<?php include 'content/footer.php';?>
-	</footer>
-
 </div><!-- end container -->
+	<?php include 'content/footer.php';?>
 </body>
 </html>
