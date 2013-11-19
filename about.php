@@ -31,12 +31,6 @@
 						</article>
 					</section>		
 				</div>
-				
-				<aside>
-					<fieldset id="actions">
-					
-					</fieldset>
-				</aside>
 			</div>
 		</div>
 		<?php include 'content/footer.php';	?>
