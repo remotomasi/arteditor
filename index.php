@@ -48,7 +48,7 @@ require_once(__DIR__.'/includes/init.php');
 		        	    <input id="username" name="username" type="text" placeholder="Username" autofocus required>
 		        	    <input id="password" name="password" type="password" placeholder="Password" required>
 		        	    <input type="submit" id="submit" value="Collegati">
-		        	    <a href="../index.php" id="back">Ritorna al sito</a>
+		        	    <a href="../arteditor/index.php" id="back">Ritorna al sito</a>
 		    	</form>
 			</fieldset>
 	    	<p />

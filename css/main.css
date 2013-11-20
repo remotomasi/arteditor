@@ -72,6 +72,22 @@ h3 {
 	font-size: 1.2em;
 }
 
+h4 {
+	font-size: 1.0em;
+}
+
+h5 {
+	font-size: 0.8em;
+}
+
+p {
+	font-size: 0.6em;
+}
+
+p.contentArt {
+	font-size: 0.9em;
+}
+
 a img {
 	border: none;
 }
@@ -192,7 +208,7 @@ nav ul li{
 			color: ff0000;
 		}
 	section {	
-		border: 1px solid #ccc;
+		/*border: 1px solid #ccc;*/
 		padding: 0 10px 10px 0px;
 		margin: -1px;
 	}
@@ -416,8 +432,8 @@ form label.required:after {
  
 fieldset {
 	background-color: #f9f7f2;
-	border: 1px dashed #ccc;
-	border-radius: 10px 10px 10px 10px;
+	border: 1px solid /*dashed*/ #ccc;
+	/*border-radius: 10px 10px 10px 10px;*/
 }
 	  
   #actions a {

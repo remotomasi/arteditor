@@ -18,8 +18,8 @@ if (empty($items)) {
 	$items = array();
 }
 
-if (empty($authorarts)) {
-	$authorarts = array();
+if (empty($arts)) {
+	$arts = array();
 }
 ?>
 
@@ -29,11 +29,15 @@ if (empty($authorarts)) {
 		<h2><?php echo htmlspecialchars($item->getTitolo()); ?></h2>
 		<p>Postato il <?php echo substr(htmlspecialchars($item->getDataPubblicazione()), 0, 10); ?>	
 		by <?php 
-					$authorarts = Articolo::getAutoreArticolo(htmlspecialchars($item->getIDArticolo()));
-					foreach ($authorarts as $authorart) {
-						echo '<i><b>' . $authorart['Cognome'] . ' ' . $authorart['Nome'] . '</b></i>';
-					} ?></p>
-		<p><?php echo htmlspecialchars($item->getContenuto()); ?></p>
+			$arts = Articolo::getAutoreArticolo(htmlspecialchars($item->getIDArticolo()));
+			foreach ($arts as $art) {
+				echo '<i><b>' . $art['Cognome'] . ' ' . $art['Nome'] . '</b></i>';
+			} ?></p>
+			<p class="contentArt"><?php echo htmlspecialchars($item->getContenuto()); ?></p>
+			<a href="modify_posts.php?post_id=<?php echo $art['id_articolo']?>&action=edit">Edit</a> ||
+			<a href="modify_posts.php?post_id=<?php echo $art['id_articolo']?>&action=delete">Delete</a> ||
+			<a href="modify_comment.php?post_id=<?php echo $art['id_articolo']?>&action=add">Add a comment</a>
 	</li>
+	
 	<?php endforeach; ?>
 </ul>
