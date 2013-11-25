@@ -9,12 +9,12 @@ class Database
    * User name to connect to database
    * @var string $_mysqlUser
    */
-  private static $_mysqlUser = 'root';
+  private static $_mysqlUser = 'php24sql'; // root;
   /**
    * Password to connect to database
    * @var string $_mysqlPass
    */
-  private static $_mysqlPass = 'livermore7';
+  private static $_mysqlPass = 'hJQV8RTe5t'; // livermore7;
   /**
    * Database name
    * @var string $_mysqlDb
@@ -50,6 +50,22 @@ class Database
       } 
     }
     return self::$_connection;
+  }
+  
+  /**
+   * Rimuove i caratteri speciali per evitare SQL injections
+   * 
+   * @param string $value
+   * @return string
+   */
+  public static function prep($value) {
+  	if (MAGIC_QUOTES_ACTIVE) {
+  		// If magic quotes is active, remove the slashes
+  		$value = stripslashes($value);
+  	}
+  	// Escape special characters to avoid SQL injections
+  	$value = self::$_connection->real_escape_string($value);
+  	return $value;
   }
 
 }
