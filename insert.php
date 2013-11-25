@@ -1,7 +1,3 @@
-<?php
-	require_once 'includes/init.php';
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,8 +8,17 @@
 
 <body>
 	<div id="container">
-				<?php include 'content/header.php';?>		
-		
+		<?php include 'content/header.php';?>	
+		<br /><br /><br />	
+		<?php
+			require_once 'includes/classes/utente.php';
+			//$utente = new Utente();
+			//require_once ('/content/utente.php');
+	 		$accessLevel = Utente::accessLevel();
+			if ($accessLevel != '1') :
+		 		echo 'Sorry, no access allowed to this page';
+			else : 
+		?>		
 		<div id="content">
 			<div id="mainContent">
 				<section>
@@ -53,7 +58,9 @@
 				</fieldset>
 			</aside>
 		</div>
+	<?php endif; ?>
 </div><!-- end container -->
+<br />
 	<?php include 'content/footer.php';?>
 </body>
 </html>

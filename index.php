@@ -10,7 +10,8 @@
  * @license    GNU General Public License
  * @since      Since Release 1.0
  */
-require_once(__DIR__.'/includes/init.php');
+require_once 'includes/init.php';
+//require_once ('/content/utente.php');
 //require_once 'includes/classes/database.php';
 ?>
 <!DOCTYPE html>
@@ -44,12 +45,7 @@ require_once(__DIR__.'/includes/init.php');
 					<h4>Login</h4>
 				</header>
 				<p />
-				<form id="login" action="verifica.php" method="post">
-		        	    <input id="username" name="username" type="text" placeholder="Username" autofocus required>
-		        	    <input id="password" name="password" type="password" placeholder="Password" required>
-		        	    <input type="submit" id="submit" value="Collegati">
-		        	    <a href="../arteditor/index.php" id="back">Ritorna al sito</a>
-		    	</form>
+				<?php include "content/login.php"; ?>
 			</fieldset>
 	    	<p />
 	        <fieldset id="inputs">

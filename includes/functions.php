@@ -18,3 +18,52 @@ function loadContent($where, $default='') {
   }
   return $html;
 }
+
+function userLogin() {
+	$results = '';
+	if (isset($_POST['login']) AND $_POST['login'] == 'Login') {
+		// check the token
+		$badToken = true;
+		if (!isset($_POST['token'])
+		|| !isset($_SESSION['token'])
+		|| empty($_POST['token'])
+		|| $_POST['token'] !== $_SESSION['token']) {
+			$results = array('','Sorry, go back and try again. There was a security issue.');
+			$badToken = true;
+		} else {
+			$badToken = false;
+			unset($_SESSION['token']);
+
+			$item  = array ( 'username'  => filter_input(INPUT_POST,'username', FILTER_SANITIZE_STRING),
+					'password'     => filter_input(INPUT_POST,'password')
+			);
+
+			// login
+			$results = Utente::logIn($item);
+		}
+	}
+	return $results;
+}
+
+function userLogout() {
+	$results = '';
+	if (isset($_POST['logout']) AND $_POST['logout'] == 'Logout') {
+		// check the token
+		$badToken = true;
+		if (!isset($_POST['token'])
+		|| !isset($_SESSION['token'])
+		|| empty($_POST['token'])
+		|| $_POST['token'] !== $_SESSION['token']) {
+			$results = array('','Sorry, go back and try again. There was a security issue.', '');
+			$badToken = true;
+		} else {
+			// logout
+			$badToken = false;
+			unset($_SESSION['token']);
+
+			Utente::logout();	// unset di tutte le variabili utente
+			$results = array('',"You have successfully logged out",'');;
+		}
+	}
+	return $results;
+}

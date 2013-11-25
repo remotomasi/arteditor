@@ -8,6 +8,7 @@
 			<li><h6><a href="delete.php">Delete</a></h6></li>
 			<li><h6><a href="#">Contatti</a></h6></li>
 			<li><h6><a href="about.php">About</a></h6></li>
+			<li><h6><a href="index.php">Logout</a></h6></li>
 		</ul>
 	</nav>
 </header>
