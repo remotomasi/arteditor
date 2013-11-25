@@ -15,6 +15,9 @@
  *
  * @package  arteditor
  */
+
+require_once 'database.php';
+
 class Utente
 {
   /**
@@ -405,8 +408,8 @@ class Utente
       return array('login','Sorry, invalid UserName and/or Password.','');
     } 
     
-    $hash_password = hash_hmac('sha512', $item['password'] . '!hi#HUde9' . (int) $id, SITE_KEY);
-  
+    $hash_password = /*hash_hmac('sha512',*/ $item['password'] /*. '!hi#HUde9' . (int) $id, SITE_KEY)*/; 	// eliminata momentaneamente		
+    																										// la criptazione
     // Set up the query
     $query = 'SELECT id_utente, nome, cognome, username, level 
       FROM `utente` 

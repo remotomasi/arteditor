@@ -12,6 +12,6 @@
        	
    		<input type="hidden" id="task" name="task" value="login" />
    		<input type="hidden" id="token" name="token" value="<?php echo $token; ?>" />
-       	<input type="submit" id="submit" name="Login" value="Login">
+       	<input type="submit" id="submit" name="login" value="Login">
        	<a href="../arteditor/index.php" id="back">Home Page</a>
    	</form>

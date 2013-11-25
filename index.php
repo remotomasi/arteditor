@@ -59,6 +59,10 @@ require_once 'includes/init.php';
 		</aside>
 	</div>	
 		
+	<div class="message">
+    	<?php echo $message; ?> 
+  	</div><!-- end message -->  
+		
 	<!-- div class="message"-->
   	  <?php 
 	/*  $connection = Database::getConnection();

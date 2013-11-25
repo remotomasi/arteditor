@@ -15,6 +15,9 @@
  *
  * @package    Arteditor
  */
+
+require_once 'database.php';
+
 class Articolo
 {
   /**

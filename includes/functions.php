@@ -4,6 +4,9 @@
  * Load the Content
  * @param $default
  */
+
+require_once 'classes/utente.php';
+
 function loadContent($where, $default='') {
   // Get the content from the url 
   // Sanitize it for security reasons
