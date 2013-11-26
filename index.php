@@ -11,15 +11,13 @@
  * @since      Since Release 1.0
  */
 require_once 'includes/init.php';
-//require_once ('/content/utente.php');
-//require_once 'includes/classes/database.php';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>ArtEditor</title>
-<link href="css/main.css" rel="stylesheet" type="text/css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>ArtEditor</title>
+	<link href="css/main.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -37,17 +35,9 @@ require_once 'includes/init.php';
 					</header>
 				</article>
 			</section>
-		</div>
-	
+		</div>	
 		<aside>
-	        <fieldset id="actions">
-				<header>
-					<h4>Login</h4>
-				</header>
-				<p />
-				<?php include "content/login.php"; ?>
-			</fieldset>
-	    	<p />
+		<?php include "content/login.php"; ?>
 	        <fieldset id="inputs">
 				<header>
 					<h4>Post Vari</h4>
@@ -59,9 +49,11 @@ require_once 'includes/init.php';
 		</aside>
 	</div>	
 		
+	<!--
 	<div class="message">
-    	<?php echo $message; ?> 
-  	</div><!-- end message -->  
+    	<!-- ?php echo $message; ?
+  	</div> -->
+  	<!-- end message -->  
 		
 	<!-- div class="message"-->
   	  <?php 

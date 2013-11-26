@@ -1,21 +1,13 @@
 <?php
-/**
- * logout.php
- * 
- * Logout
- * 
- * @version    0.1 2013-11-22
- * @package    Arteditor
- * @copyright  Copyright (c) 2013 Remo Tomasi
- * @license    GNU General Public License
- * @since      Since Release 1.0
- */
+	if(!isset($_SESSION)){
+	    session_start();
+	} // starts new or resumes existing session 
 ?>
-<h1>Logout</h1>
+<h3>Logout</h3>
 
 <form action="index.php" method="post" name="maint" id="maint">
 	<fieldset class="mainform">
-		<legend>Logout</legend>
+		<!-- <legend>Logout</legend> -->
 		<p>Sei sicuro di voler uscire,
 			<?php echo $_SESSION['nome'];
 		?>?</p>

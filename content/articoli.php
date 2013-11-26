@@ -1,15 +1,9 @@
 <?php
-/**
- * articoli.php
-*
-* Content for Articoli page
-*
-* @version    1.2 2011-02-03
-* @package    Arteditor
-* @copyright  Copyright (c) 2011 Remo Tomasi
-* @license    GNU General Public License
-* @since      Since Release 1.0
-*/
+	if(!isset($_SESSION)){
+	    session_start();
+	} // starts new or resumes existing session 
+?>
+<?php
 require_once "includes/classes/articolo.php";
 // Get the articolo information
 $items = Articolo::getArticoli();

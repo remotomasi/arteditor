@@ -1,7 +1,17 @@
-<?php
-	require_once 'includes/init.php';
+<?php 
+/**
+ * delete.php
+ *
+ * Delete file
+ *
+ * @version    0.1 2013-11-26
+ * @package    Arteditor
+ * @copyright  Copyright (c) 2013 Remo Tomasi
+ * @license    GNU General Public License
+ * @since      Since Release 1.0
+ */
+require_once 'includes/init.php';
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,8 +54,14 @@
 				</section>	
 			</div>
 			<aside>
-				<fieldset id="actions">
-					
+				<?php include "content/login.php"; ?>
+				<fieldset id="inputs">
+					<header>
+						<h4>Post Vari</h4>
+					</header>
+					<div id="postSide">
+						<?php include 'content/postSide.php';?>
+					</div>
 				</fieldset>
 			</aside>
 		</div>

@@ -11,7 +11,9 @@
  * @since      Since Release 1.0
  */
 
-session_start(); // starts new or resumes existing session
+if(!isset($_SESSION)){
+    session_start();
+} // starts new or resumes existing session 
 define('MAGIC_QUOTES_ACTIVE', get_magic_quotes_gpc());
 define('SITE_KEY', 'd0d48339c3b82db413b3be8fbc5d7ea1c1fd3e2792605d3cbfda1HEM54!!');
 

@@ -1,3 +1,8 @@
+<?php
+	if(!isset($_SESSION)){
+	    session_start();
+	} // starts new or resumes existing session 
+?>
 <ul>
 	<li><h3>Gennaio</h3>
 	<div id="postSideArt">
