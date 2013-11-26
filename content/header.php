@@ -11,7 +11,9 @@
 			<?php if (isset($_SESSION['nome'])) {?>
 			<li><h6><a href="insert.php">Insert</a></h6></li>			
 			<?php } ?>
+			<?php if (isset($_SESSION['nome'])) {?>
 			<li><h6><a href="delete.php">Delete</a></h6></li>
+			<?php } ?>
 			<li><h6><a href="#">Contatti</a></h6></li>
 			<li><h6><a href="about.php">About</a></h6></li>
 			<?php if (isset($_SESSION['nome'])) {?>

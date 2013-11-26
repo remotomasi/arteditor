@@ -5,7 +5,6 @@
 <title>ArtEditor - Insert</title>
 <link href="css/main.css" rel="stylesheet" type="text/css" />
 </head>
-<?php session_start(); // starts new or resumes existing session ?>
 <body>
 	<div id="container">
 		<?php include 'content/header.php';?>	

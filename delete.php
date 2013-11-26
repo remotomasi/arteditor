@@ -22,8 +22,19 @@ require_once 'includes/init.php';
 
 <body>
 	<div id="container">
-				<?php include 'content/header.php';?>		
-		
+		<?php include 'content/header.php';?>		
+		<?php 
+			if (!isset($_SESSION['nome'])) :
+		?>
+			<br /><br /><p></p>
+			<fieldset>
+		<?php
+			echo 'Sorry, no access allowed to this page';
+		?>
+			</fieldset>
+		<?php 
+			else :
+		?>
 		<div id="content">
 			<div id="mainContent">
 				<section>
@@ -65,7 +76,9 @@ require_once 'includes/init.php';
 				</fieldset>
 			</aside>
 		</div>
+	<?php endif; ?>
 </div><!-- end container -->
+<br />
 	<?php include 'content/footer.php';?>
 </body>
 </html>

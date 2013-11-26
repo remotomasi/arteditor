@@ -25,18 +25,16 @@ require_once 'includes/init.php';
 	<?php include 'content/header.php';?>
 	<?php 
 		if (!isset($_SESSION['nome'])) :
-			?>
+	?>
 		<br /><br /><p></p>
 		<fieldset>
-			<?php
-			echo 'Sorry, no access allowed to this page';
-			?>
+	<?php
+		echo 'Sorry, no access allowed to this page';
+	?>
 		</fieldset>
 	<?php 
 		else :
 	?>
-	<?php include 'content/header.php';?>
-
 	<div id="content">
 		<div id="mainContent">
 			<section>

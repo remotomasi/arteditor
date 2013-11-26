@@ -180,7 +180,7 @@ nav ul li{
 		color: #fff;
 	}
 		nav ul li a:hover {
-			font-size: 16px;
+			/* font-size: 16px; */
 			color: #CCFF33; /*#10e907;*/
 		}
 		nav ul li.selected a {
