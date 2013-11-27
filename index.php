@@ -11,6 +11,7 @@
  * @since      Since Release 1.0
  */
 require_once 'includes/init.php';
+require_once "includes/classes/articolo.php";
 ?>
 <!DOCTYPE html>
 <html>

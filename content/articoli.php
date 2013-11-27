@@ -4,7 +4,7 @@
 	} // starts new or resumes existing session 
 ?>
 <?php
-require_once "includes/classes/articolo.php";
+// require_once "includes/classes/articolo.php";
 // Get the articolo information
 $items = Articolo::getArticoli();
 //$authorarts = Articolo::getAutoreArticolo(1);
