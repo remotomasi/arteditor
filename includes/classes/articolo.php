@@ -146,6 +146,31 @@ class Articolo
   }
   
   /**
+   *
+   * @param string $titolo
+   * @param string $contenuto
+   * @param integer $id_utente
+   */
+  static public function deleteArticolo($id_articolo) {
+	  	// clear the results
+	  	$items = '';
+	  	// Get the connection
+	  	$connection = Database::getConnection();
+	  	// Set up the query
+	  	$query = "DELETE FROM articolo WHERE id_articolo = '$id_articolo' ";
+	  			 
+	  	echo $query;
+	  
+	  	$result = '';
+	  	// Run the query
+	  	try {
+		  	$result = $connection->query($query);
+	  	} catch (Exception $e) {
+    		echo 'Eccezione catturata: ',  $e->getMessage(), "\n";
+		}
+  	}
+  			
+  /**
    * 
    * @param integer $idArticolo
    * @return Ambigous <string, Articolo>|boolean

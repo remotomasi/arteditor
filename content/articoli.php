@@ -1,3 +1,23 @@
+<head>
+	<script type="text/javascript">
+		/*<![CDATA[*/
+		
+		function conferma(id_articolo){
+		
+		var messaggio = 'Stai per confermare la cancellazione del post.';
+		
+		var scelta = confirm(messaggio);
+		
+		  if (scelta == true)
+		  {
+		  self.location.href = 'content/deleteArticolo.php?id_articolo=' + id_articolo + '&action=delete';
+		  }
+		}
+		
+		/*]]>*/
+	</script>
+</head> 
+
 <?php
 	if(!isset($_SESSION)){
 	    session_start();
@@ -30,7 +50,7 @@ if (empty($arts)) {
 			} ?></p>
 			<p class="contentArt"><?php echo htmlspecialchars($item->getContenuto()); ?></p>
 			<a href="modify_posts.php?post_id=<?php echo $art['id_articolo']?>&action=edit">Edit</a> ||
-			<a href="modify_posts.php?post_id=<?php echo $art['id_articolo']?>&action=delete">Delete</a> ||
+			<a href="" onclick="conferma(<?php echo $art['id_articolo']?>); return false;">Delete</a> ||
 			<a href="modify_comment.php?post_id=<?php echo $art['id_articolo']?>&action=add">Add a comment</a>
 	</li>
 	

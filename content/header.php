@@ -8,7 +8,7 @@
 		<ul>
 			<li><h2>ArtEditor</h3>
 			<li><h6><a href="index.php">Blog</a></h6></li>
-			<?php if (isset($_SESSION['nome'])) {?>
+			<?php if (isset($_SESSION['nome']) && (isset($_SESSION['level']) && $_SESSION['level'] == '1')) {?>
 			<li><h6><a href="insert.php">Insert</a></h6></li>			
 			<?php } ?>
 			<?php if (isset($_SESSION['nome'])) {?>

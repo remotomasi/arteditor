@@ -24,7 +24,7 @@ require_once 'includes/init.php';
 	<div id="container">
 		<?php include 'content/header.php';?>		
 		<?php 
-			if (!isset($_SESSION['nome'])) :
+			if (!isset($_SESSION['nome']) || (isset($_SESSION['level']) && $_SESSION['level'] != '1')) :
 		?>
 			<br /><br /><p></p>
 			<fieldset>
