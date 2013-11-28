@@ -49,8 +49,10 @@ if (empty($arts)) {
 				echo '<i><b>' . $art['Cognome'] . ' ' . $art['Nome'] . '</b></i>';
 			} ?></p>
 			<p class="contentArt"><?php echo htmlspecialchars($item->getContenuto()); ?></p>
+			<?php if (isset($_SESSION['nome']) && (isset($_SESSION['level']) && $_SESSION['level'] == '1')) {?>
 			<a href="modify_posts.php?post_id=<?php echo $art['id_articolo']?>&action=edit">Edit</a> ||
-			<a href="" onclick="conferma(<?php echo $art['id_articolo']?>); return false;">Delete</a> ||
+			<a href="" onclick="conferma(<?php echo $art['id_articolo']?>); return false;">Delete</a> ||					
+			<?php } ?>
 			<a href="modify_comment.php?post_id=<?php echo $art['id_articolo']?>&action=add">Add a comment</a>
 	</li>
 	
