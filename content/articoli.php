@@ -2,16 +2,28 @@
 	<script type="text/javascript">
 		/*<![CDATA[*/
 		
-		function conferma(id_articolo){
+		function cancella(id_articolo){
 		
-		var messaggio = 'Stai per confermare la cancellazione del post.';
+			var messaggio = 'Stai per confermare la cancellazione del post.';
 		
-		var scelta = confirm(messaggio);
+			var scelta = confirm(messaggio);
 		
-		  if (scelta == true)
-		  {
-		  self.location.href = 'content/deleteArticolo.php?id_articolo=' + id_articolo + '&action=delete';
-		  }
+			if (scelta == true)
+			{
+				self.location.href = 'content/deleteArticolo.php?id_articolo=' + id_articolo + '&action=delete';
+			}
+		}	
+			
+		function modifica(id_articolo, titolo, contenuto){
+
+			var messaggio = 'Vuoi modificare il post selezionato?';
+			
+			var scelta = confirm(messaggio);
+			
+			if (scelta == true)
+			{
+				self.location.href = 'edit.php?id_articolo=' + id_articolo + '&titolo=' + titolo + '&contenuto=' + contenuto + '&action=modify';
+			}
 		}
 		
 		/*]]>*/
@@ -44,17 +56,26 @@ if (empty($arts)) {
 		<h2><?php echo htmlspecialchars($item->getTitolo()); ?></h2>
 		<p>Postato il <?php echo substr(htmlspecialchars($item->getDataPubblicazione()), 0, 10); ?>	
 		by <?php 
-			$arts = Articolo::getAutoreArticolo(htmlspecialchars($item->getIDArticolo()));
-			foreach ($arts as $art) {
-				echo '<i><b>' . $art['Cognome'] . ' ' . $art['Nome'] . '</b></i>';
-			} ?></p>
+			//echo $item->getIDArticolo();
+			//$arts = Articolo::getAutoreArticoloByIDArticolo(htmlspecialchars('2'));
+
+			$arts = Articolo::getAutoreArticoloByIDArticolo(htmlspecialchars($item->getIDArticolo()));
+			if (!empty($arts)){
+				foreach ($arts as $art) {
+					echo '<i><b>' . $art['Cognome'] . ' ' . $art['Nome'] . '</b></i>';
+				}
+			}else{
+				echo "Vuoto!";
+			}
+			
+			?></p>
+			
 			<p class="contentArt"><?php echo htmlspecialchars($item->getContenuto()); ?></p>
 			<?php if (isset($_SESSION['nome']) && (isset($_SESSION['level']) && $_SESSION['level'] == '1')) {?>
-			<a href="modify_posts.php?post_id=<?php echo $art['id_articolo']?>&action=edit">Edit</a> ||
-			<a href="" onclick="conferma(<?php echo $art['id_articolo']?>); return false;">Delete</a> ||					
+			<a href="" onclick="modifica(<?php echo $art['id_articolo']?>, '<?php echo $item->getTitolo();?>', '<?php echo $item->getContenuto();?>'); return false;">Edit</a> ||
+			<a href="" onclick="cancella(<?php echo $art['id_articolo']?>); return false;">Delete</a> ||					
 			<?php } ?>
-			<a href="modify_comment.php?post_id=<?php echo $art['id_articolo']?>&action=add">Add a comment</a>
-	</li>
-	
+			<a href="modify_comment.php?post_id=<?php echo $item->getIDArticolo(); //$art['id_articolo']?>&action=add">Add a comment</a>
+	</li> 
 	<?php endforeach; ?>
 </ul>

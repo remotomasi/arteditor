@@ -6,13 +6,15 @@ require_once '../includes/classes/database.php';
 loadContent('../content/', 'articoli');
 
 	$accessLevel = $_SESSION['level'];
-	echo 'Livello: ' . $accessLevel;
+	//echo 'Livello: ' . $accessLevel;
 
 	if ($accessLevel == '1') :
-		if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
+		if (isset($_POST['modifica']) AND $_POST['modifica'] == 'Modify') {
 			$art = new Articolo();
-			$art::deleteArticoloByID($_GET['id_articolo']);
+			$art::modificaArticolo($_POST['id_articolo'], $_POST['titolo'], $_POST['contenuto']);
 		}
-	endif;	
+	endif;
+	
+	//echo $_POST['id_articolo'], $_POST['titolo'], $_POST['contenuto'], $_POST['modifica'];
 	
 	header("Location: ../index.php");

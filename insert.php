@@ -9,13 +9,7 @@
 	<div id="container">
 		<?php include 'content/header.php';?>	
 		<?php
-			require_once 'includes/classes/utente.php';
-			//$utente = new Utente();
-			//require_once ('/content/utente.php');
-	 		$accessLevel = Utente::accessLevel();
-	 		echo 'Livello: ' . $accessLevel;
-
-			if ($accessLevel != '1') :
+			if (!isset($_SESSION['nome']) || (isset($_SESSION['level']) && $_SESSION['level'] != '1')) :
 			?>
 			<br /><br /><p></p>
 			<fieldset>

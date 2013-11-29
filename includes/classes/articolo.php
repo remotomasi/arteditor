@@ -96,25 +96,83 @@ class Articolo
   	// Get the connection
   	$connection = Database::getConnection();
   	// Set up the query
-  	$query = 'SELECT * FROM `articolo` order by data_pubblicazione desc';
-  
+  	//$query = 'SELECT * FROM `articolo` order by data_pubblicazione desc';
+  	$query = "CALL sp_articoli()";
+  	
   	// Run the query
   	$result_obj = '';
   	$result_obj = $connection->query($query);
-  	// Loop through getting associative arrays,
-  	// passing them to a new version of this class,
-  	// and making a regular array of the objects
-  	try {
-  		while($result = $result_obj->fetch_array(MYSQLI_ASSOC)) {
-  			$items[]= new Articolo($result);
-  		}
-  		// pass back the results
-  		return($items);
-  	}
+  	
+	/*  	
+	 *	if (!$result_obj) {
+		die('Something went wrong: ' . $result_obj);
+	}
+	*/
+	
+	if (!$result_obj) {
+		echo "CALL failed: (" . $connection->errno . ") " . $connection->error;
+	}else{
+
+	  	// Loop through getting associative arrays,
+	  	// passing them to a new version of this class,
+	  	// and making a regular array of the objects
+	  	
+	  	try {
+	  		$connection->next_result();
+	  		while($result = $result_obj->fetch_array(MYSQLI_ASSOC)) {
+	  			$items[]= new Articolo($result);
+	  		}
+	  		// pass back the results
+	  		//$connection->close();
+	  		return($items);
+	  	}
+	  
+	  	catch(Exception $e) {
+	  		return false;
+	  	}
+
+	}
   
-  	catch(Exception $e) {
-  		return false;
-  	}
+  }
+  
+  /**
+   *
+   * @return Ambigous <string, Articolo>|boolean
+   */
+  static public function getArticoloByID($id_articolo) {
+  	// clear the results
+  	$item = '';
+  	// Get the connection
+  	$connection = Database::getConnection();
+  	// Set up the query
+  	//$query = 'SELECT * FROM `articolo` WHERE id_articolo=' . $id_articolo;
+  	$query = "CALL sp_articolo('$id_articolo')";
+  	
+  	// Run the query
+  	$result_obj = '';
+  	$result_obj = $connection->query($query);
+
+	if (!$result_obj) {
+		echo "CALL failed: (" . $connection->errno . ") " . $connection->error;
+	}else{
+
+	  	// Loop through getting associative arrays,
+	  	// passing them to a new version of this class,
+	  	// and making a regular array of the objects
+	  	
+	  	try {
+  			$connection->next_result();
+			$result = $result_obj->fetch_array(MYSQLI_ASSOC);
+			$item = new Articolo($result);
+	  	
+	  		// pass back the results
+	  		return($item);
+	  	}
+	  
+	  	catch(Exception $e) {
+	  		return false;
+	  	}
+	}
   
   }
 
@@ -130,77 +188,147 @@ class Articolo
   	// Get the connection
   	$connection = Database::getConnection();
   	// Set up the query
-  	$query = "INSERT INTO articolo (titolo, contenuto, data_pubblicazione, id_utente) VALUES "
-  			. "('$titolo', '$contenuto', NOW(), $id_utente)";
+  	//$query = "INSERT INTO articolo (titolo, contenuto, data_pubblicazione, id_utente) VALUES "
+  	//		. "('$titolo', '$contenuto', NOW(), $id_utente)";
+  	$query = "CALL sp_insertArticolo('$titolo','$contenuto','$id_utente')";
   	
-  	echo $query;
+  	//echo $query;
   	  	
-  	$result = '';
   	// Run the query
-	if ($result = $connection->query($query)) {
-		echo "Unable to add row";
-	} else {
-		echo "Row successful added <br />";
+  	$result = '';
+  	$result_obj = $connection->query($query);
+  	
+	if (!$result_obj) {
+		echo "CALL failed: (" . $connection->errno . ") " . $connection->error;
+	}else{
+
+	  	// Loop through getting associative arrays,
+	  	// passing them to a new version of this class,
+	  	// and making a regular array of the objects
+	  	
+	  	try {
+  			$connection->next_result();
+			$result = $connection->query($query);
+			return $result;
+	  	}catch (Exception $e) {
+			return false;		
+		}
 	}
-  
   }
-  
+
   /**
    *
    * @param string $titolo
    * @param string $contenuto
    * @param integer $id_utente
    */
-  static public function deleteArticolo($id_articolo) {
-	  	// clear the results
-	  	$items = '';
-	  	// Get the connection
-	  	$connection = Database::getConnection();
-	  	// Set up the query
-	  	$query = "DELETE FROM articolo WHERE id_articolo = '$id_articolo' ";
-	  			 
-	  	echo $query;
-	  
-	  	$result = '';
-	  	// Run the query
+  static public function modificaArticolo($id_articolo, $titolo, $contenuto) {
+  	// Get the connection
+  	$connection = Database::getConnection();
+  	// Set up the query
+  	//$query = "UPDATE articolo SET Titolo=" . "'$titolo'" . ", Contenuto=" . "'$contenuto'" . "WHERE " . 'id_articolo=' . "'$id_articolo'";
+  	$query = "CALL sp_updateArticolo('$titolo','$contenuto','$id_articolo')";	 
+	//echo $query;
+
+  	// Run the query
+	$result = '';
+  	$result_obj = $connection->query($query);
+  	
+	if (!$result_obj) {
+		echo "CALL failed: (" . $connection->errno . ") " . $connection->error;
+	}else{
+
+	  	// Loop through getting associative arrays,
+	  	// passing them to a new version of this class,
+	  	// and making a regular array of the objects
+	  	
 	  	try {
-		  	$result = $connection->query($query);
-	  	} catch (Exception $e) {
+	  		$connection->next_result();
+			$result = $connection->query($query);
+			return $result;
+  		}catch (Exception $e) {
     		echo 'Eccezione catturata: ',  $e->getMessage(), "\n";
+			return false;	
+  		}	
+	}
+  }  
+  
+  /*
+   *
+   * @param string $titolo
+   * @param string $contenuto
+   * @param integer $id_utente
+   */
+  static public function deleteArticoloByID($id_articolo) {
+	// Get the connection
+	$connection = Database::getConnection();
+	// Set up the query
+	$query = "CALL sp_deleteArticolo('$id_articolo')";
+
+	// Run the query
+	$result = '';
+  	$result_obj = $connection->query($query);
+  	
+	if (!$result_obj) {
+		echo "CALL failed: (" . $connection->errno . ") " . $connection->error;
+	}else{
+
+	  	// Loop through getting associative arrays,
+	  	// passing them to a new version of this class,
+	  	// and making a regular array of the objects
+	  	
+	  	try {
+	  		$connection->next_result();
+	  		$result = $connection->query($query);
+	  		return $result;
+		} catch (Exception $e) {
+    		echo 'Eccezione catturata: ',  $e->getMessage(), "\n";
+			return false;
 		}
-  	}
+	}
+  }
   			
   /**
    * 
    * @param integer $idArticolo
    * @return Ambigous <string, Articolo>|boolean
    */
-  static public function getAutoreArticolo($idArticolo) {
+  static public function getAutoreArticoloByIDArticolo($idArticolo) {
   	// clear the results
-  	$items = '';
-  	// Get the connection
-  	$connection = Database::getConnection();
-  	// Set up the query
-  	$query = "SELECT * FROM `utente` inner join articolo on utente.id_utente = articolo.id_utente where articolo.id_articolo = '$idArticolo'";
-  
+    $items = '';
+    // Get the connection
+    $connection = Database::getConnection();
+    // Set up the query
+          
+    //$query = "SELECT * FROM `utente` inner join articolo on utente.id_utente = articolo.id_utente where articolo.id_articolo = '$idArticolo'";
+  	$query = "CALL sp_autoreArticoloByIDArticolo('$idArticolo')";
+  	  
   	// Run the query
   	$result_obj = '';
   	$result_obj = $connection->query($query);
-  	// Loop through getting associative arrays,
-  	// passing them to a new version of this class,
-  	// and making a regular array of the objects
-  	try {
-  		while($result = $result_obj->fetch_array(MYSQLI_ASSOC)) {
-  			$items[]= $result;
-  		}
-  		// pass back the results
-  		return($items);
-  	}
+  		  
+  	if (!$result_obj) {
+		echo "CALL failed: (" . $connection->errno . ") " . $connection->error;
+	}else{  		  
+
+    // Loop through getting associative arrays,
+    // passing them to a new version of this class,
+    // and making a regular array of the objects
+          
+    try {
+       	$connection->next_result();
+        while($result = $result_obj->fetch_array(MYSQLI_ASSOC)) {
+	        $items[]= $result;
+            //$result_obj->free();
+        }
+        // pass back the results
+        return($items);
+        //return ($result_obj);
+      	}
   
-  	catch(Exception $e) {
-  		return false;
-  	}
-  
+     catch(Exception $e) {
+     	return false;
+     }
+	}
   }
-  
 }
