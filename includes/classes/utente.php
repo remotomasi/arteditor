@@ -222,25 +222,32 @@ class Utente
     // Get the connection  
     $connection = Database::getConnection();
     // Set up query
-    $query = 'SELECT `id_utente`,`nome`,`cognome`,`level`, `email`, `username`) 
-      FROM `utente` ORDER BY nome, cognome';
+    $query = "CALL sp_utenti()";
+    
     // Run the query
     $result_obj = '';
     $result_obj = $connection->query($query);
-    // Loop through the results, 
-    // passing them to a new version of this class, 
-    // and making a regular array of the objects
-    try {  
-      while($result = $result_obj->fetch_object('Utente')) {
-        $items[]= $result;
-      }
-      // pass back the results
-      return($items);
-    }
     
-    catch(Exception $e) {
-      return false;
-    }  
+    if (!$result_obj) {
+    	echo "CALL failed: (" . $connection->errno . ") " . $connection->error;
+    }else{
+    
+	    // Loop through the results, 
+	    // passing them to a new version of this class, 
+	    // and making a regular array of the objects
+	    try {  
+	  		$connection->next_result();
+	      	while($result = $result_obj->fetch_object('Utente')) {
+	        	$items[]= $result;
+	      }
+	      // pass back the results
+	      return($items);
+	    }
+	    
+	    catch(Exception $e) {
+	      return false;
+	    } 
+	} 
   }
   
   public function editRecord() {
