@@ -50,6 +50,35 @@ if (empty($arts)) {
 }
 ?>
 
+							<?php 
+								if (!empty($_GET['idArticolo'])) : ?>
+								<?php 
+									$id = $_GET['idArticolo'];
+									$articolo = Articolo::getArticoloByID($id);
+								?>
+									<h2><?php echo htmlspecialchars($articolo->getTitolo()); ?></h2>
+									<p>Postato il <?php echo substr(htmlspecialchars($articolo->getDataPubblicazione()), 0, 10); ?>	
+									by <?php 
+										//echo $item->getIDArticolo();
+										//$arts = Articolo::getAutoreArticoloByIDArticolo(htmlspecialchars('2'));
+										$arts = Articolo::getAutoreArticoloByIDArticolo(htmlspecialchars($articolo->getIDArticolo()));
+										if (!empty($arts)){
+											foreach ($arts as $art) {
+												echo '<i><b>' . $art['Cognome'] . ' ' . $art['Nome'] . '</b></i>';
+											}
+										}else{
+											echo "Vuoto!";
+										}
+									
+										?></p>
+										
+										<p class="contentArt"><?php echo htmlspecialchars($articolo->getContenuto()); ?></p>
+										<?php if (isset($_SESSION['nome']) && (isset($_SESSION['level']) && $_SESSION['level'] == '1')) {?>
+										<a href="" onclick="modifica(<?php echo $art['id_articolo']?>, '<?php echo $articolo->getTitolo();?>', '<?php echo $articolo->getContenuto();?>'); return false;">Edit</a> ||
+										<a href="" onclick="cancella(<?php echo $art['id_articolo']?>); return false;">Delete</a> ||					
+										<?php } ?>
+										<a href="modify_comment.php?post_id=<?php echo $articolo->getIDArticolo(); //$art['id_articolo']?>&action=add">Add a comment</a>
+<?php 	else:	?>
 <ul class="ulfancy">
 	<?php foreach ($items as $i=>$item) : ?>
 	<li class="row<?php echo $i % 2; ?>">
@@ -79,3 +108,7 @@ if (empty($arts)) {
 	</li> 
 	<?php endforeach; ?>
 </ul>
+
+								<?php 
+								endif;
+							?>

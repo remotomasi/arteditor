@@ -3,15 +3,29 @@
 	    session_start();
 	} // starts new or resumes existing session 
 ?>
+	
+<?php 
+require_once "includes/classes/articolo.php";
+// Get the articolo information
+$items = Articolo::getArticoli();
+
+if (empty($items)) {
+	$items = array();
+}
+
+if (empty($arts)) {
+	$arts = array();
+}
+?>
+
 <ul>
 	<li><h3>Gennaio</h3>
-	<div id="postSideArt">
+	<?php foreach ($items as $i=>$item) : ?>
+		<div id="postSideArt">
 		<ul>
-			<li><h6><a href="#">Post 1</a></h6></li>
-			<li><h6><a href="#">Post 2</a></h6></li>
-			<li><h6><a href="#">Post 3</a></h6></li>
-			<li><h6><a href="#">Post 4</a></h6></li>
-			<li><h6><a href="#">Post 5</a></h6></li>
+			<li><h6><a href="index.php?idArticolo='<?php echo htmlspecialchars($item->getIDArticolo()); ?>'"><?php echo htmlspecialchars($item->getTitolo()); ?></a></h6></li>
 		</ul>
+		</div>
+	<?php endforeach; ?>
 	</div>
 </ul>

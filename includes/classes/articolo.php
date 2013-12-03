@@ -82,7 +82,7 @@ class Articolo
     return $this->data_pubblicazione;
   }
 
-  public function getIDArticolo () {
+  public function getIDArticolo() {
   	return $this->id_articolo;
   }
     
@@ -146,7 +146,7 @@ class Articolo
   	$connection = Database::getConnection();
   	// Set up the query
   	//$query = 'SELECT * FROM `articolo` WHERE id_articolo=' . $id_articolo;
-  	$query = "CALL sp_articolo('$id_articolo')";
+  	$query = "CALL arteditor.sp_articolo($id_articolo)";
   	
   	// Run the query
   	$result_obj = '';
