@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 require_once '../includes/init.php';
 require_once '../includes/classes/articolo.php';
 require_once '../includes/classes/database.php';

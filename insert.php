@@ -4,6 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>ArtEditor - Insert</title>
 <link href="css/main.css" rel="stylesheet" type="text/css" />
+<script language="Javascript" src="js/controllo.js"></script>
+
+
 </head>
 <body>
 	<div id="container">
@@ -41,13 +44,13 @@
 										
 										<ul>
 											<li><label for="Titolo">Titolo</label><br />
-											<input id="titolo" name="titolo" type="text" /></li>
+											<input type="text" id="titolo" name="titolo" onkeyup="enableSubmit()"/></li>
 											<li><label for="Contenuto">Contenuto</label><br />
-											<textarea id="contenuto" name="contenuto" rows="10" cols="77">
+											<textarea id="contenuto" name="contenuto" rows="10" cols="77" onkeyup="enableSubmit()">
 											</textarea></li>
 										</ul>
 													
-										<input type="submit" name="save" value="Save" />
+										<input type="submit" id="save" name="save" value="Save" disabled="disabled"/>
 								</fieldset>
 							</form>
 						</header>
