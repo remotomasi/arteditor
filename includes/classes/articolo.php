@@ -87,7 +87,7 @@ class Articolo
   }
     
   /**
-   * 
+   * Ottiene la lista degli articoli
    * @return Ambigous <string, Articolo>|boolean
    */
   static public function getArticoli() {
@@ -131,6 +131,97 @@ class Articolo
 	  		return false;
 	  	}
 
+	}
+  
+  }
+  
+  /**
+   * Ottiene la lista degli articoli
+   * @return Ambigous <string, Articolo>|boolean
+   */
+  static public function getArticoliPerPagina($primo, $perPage) {
+  	// clear the results
+  	$items = '';
+  	// Get the connection
+  	$connection = Database::getConnection();
+  	// Set up the query
+  	//$query = 'SELECT * FROM `articolo` order by data_pubblicazione desc';
+  	$query = "CALL sp_pageArticoli('$primo', '$perPage')";
+  	 
+  	// Run the query
+  	$result_obj = '';
+  	$result_obj = $connection->query($query);
+  	 
+  	/*
+  	 *	if (!$result_obj) {
+  	die('Something went wrong: ' . $result_obj);
+  	}
+  	*/
+  
+  	if (!$result_obj) {
+  		echo "CALL failed: (" . $connection->errno . ") " . $connection->error;
+  	}else{
+  
+  		// Loop through getting associative arrays,
+  		// passing them to a new version of this class,
+  		// and making a regular array of the objects
+  
+  		try {
+  			$connection->next_result();
+  			while($result = $result_obj->fetch_array(MYSQLI_ASSOC)) {
+  				$items[]= new Articolo($result);
+  			}
+  			// pass back the results
+  			//$connection->close();
+  			return($items);
+  		}
+  		 
+  		catch(Exception $e) {
+  			return false;
+  		}
+  
+  	}
+  
+  }
+  
+  /**
+   * Ottiene il numero degli articoli
+   * @return Ambigous <string, Articolo>|boolean
+   */
+  static public function getCountArticoli() {
+  	// clear the results
+    $items = '';
+  	// Get the connection
+  	$connection = Database::getConnection();
+  	// Set up the query
+  	//$query = "INSERT INTO articolo (titolo, contenuto, data_pubblicazione, id_utente) VALUES "
+  	//		. "('$titolo', '$contenuto', NOW(), $id_utente)";
+  	$query = "CALL sp_countArticoli()";
+  	  	  	
+  	// Run the query
+  	$result = '';
+  	$result_obj = $connection->query($query);
+  	
+	if (!$result_obj) {
+		echo "CALL failed: (" . $connection->errno . ") " . $connection->error;
+	}else{
+
+	  	// Loop through getting associative arrays,
+	  	// passing them to a new version of this class,
+	  	// and making a regular array of the objects
+	  	
+	    try {
+       		$connection->next_result();
+	        while($result = $result_obj->fetch_array(MYSQLI_ASSOC)) {
+		        $items[] = $result;
+	            //$result_obj->free();
+	        }
+	        // pass back the results
+	        return($items);
+	        //return ($result_obj);
+		} catch(Exception $e) {
+     		return 0;
+     	}
 	}
   
   }
