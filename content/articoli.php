@@ -132,6 +132,8 @@ $items = Articolo::getArticoliPerPagina($primo, $perPage);
 	</li> 
 	<?php endforeach; ?>	
 	
+	<hr />
+	
 	<?php 
 	
 	$paginazione = "Pagine totali: " . $tot_pages . "[";
