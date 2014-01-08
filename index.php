@@ -19,6 +19,8 @@ require_once "includes/classes/articolo.php";
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>ArtEditor</title>
 	<link href="css/main.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+ 	<script type="text/javascript" language="javascript" charset="utf-8" src="js/nav.js"></script>
 </head>
 
 <body>
