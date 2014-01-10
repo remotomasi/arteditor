@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
   $("#navLat > li > a").on("click", function(e){
     if($(this).parent().has("ul")) {
       e.preventDefault();
@@ -19,4 +19,28 @@ $(document).ready(function(){
       $(this).next("ul").slideUp(350);
     }
   });
+});*/
+
+
+$(document).ready(function(){
+	$('.postSideArt').hide();	
+});
+
+$(function () {
+	function runEffect(obj) {
+		if (!(obj.is(":visible"))) {
+			obj.show('blind', 200);
+		}
+		else {
+			obj.hide('blind', 200);
+		}
+	};
+	
+	$('.expandButton').click(function (e) {
+		runEffect($(".postSideArt"));
+	});
+	
+	$(this).click(function (e) {
+		e.stopPropagation();
+	})
 });

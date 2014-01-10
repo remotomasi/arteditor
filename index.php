@@ -13,13 +13,24 @@
 require_once 'includes/init.php';
 require_once "includes/classes/articolo.php";
 ?>
+
+<?php 
+	if ((!isset($_GET['page'])) ||  (!is_numeric($_GET['page']))) {
+		header("Location: ../arteditor/index.php?page=1");
+	}	
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8;URL=index.php?page=1" />
+	<!-- <meta http-equiv="refresh" content="0;URL=index.php?page=1" /> -->
 	<title>ArtEditor</title>
 	<link href="css/main.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
+ 	<script type="text/javascript" language="javascript" charset="utf-8" src="js/jquery-1.6.1.min.js"></script>
+ 	<script type="text/javascript" language="javascript" charset="utf-8" src="js/jquery.effects.core.js"></script>
+ 	<script type="text/javascript" language="javascript" charset="utf-8" src="js/jquery.effects.blind.js"></script>
  	<script type="text/javascript" language="javascript" charset="utf-8" src="js/nav.js"></script>
 </head>
 

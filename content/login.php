@@ -10,7 +10,7 @@
 		<header>
 			<h4>Login</h4>
 		</header>
-		<form action="index.php" method="post" id="maint" name="maint">
+		<form action="index.php?page=1" method="post" id="maint" name="maint">
 	   		<input id="username" name="username" type="text" placeholder="Username" autofocus required>
 	    	<input id="password" name="password" type="password" placeholder="Password" required>
 	      	
@@ -24,7 +24,7 @@
 	   		<input type="hidden" id="task" name="task" value="login" />
 	   		<input type="hidden" id="token" name="token" value="<?php echo $token; ?>" />
 	    	<input type="submit" id="submit" name="login" value="Login">
-	    	<a href="../arteditor/index.php" id="back">Home Page</a>
+	    	<a href="../arteditor/index.php?page=1" id="back">Home Page</a>
 	   	</form>
 	</fieldset>
 			<?php 

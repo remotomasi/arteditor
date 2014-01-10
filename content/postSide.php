@@ -18,12 +18,12 @@ if (empty($arts)) {
 }
 ?>
 
-<ul id="navLat">
-    <li><a href="#">Gennaio</a>
-		<ul id="postSideArt">
+<ul id="navLat" >
+    <li class="expandButton" ><a href="#">Gennaio</a>
+		<ul id="postSideArt" class="postSideArt">
 		<?php foreach ($items as $i=>$item) : ?>
 			<li><h6><a href="index.php?idArticolo='<?php echo htmlspecialchars($item->getIDArticolo()); ?>'"><?php echo htmlspecialchars($item->getTitolo()); ?></a></h6></li>
 		<?php endforeach; ?>
 		</ul>
-	</div>
+	</li>
 </ul>
