@@ -145,11 +145,13 @@ $items = Articolo::getArticoliPerPagina($primo, $perPage);
 		}
 	}
 	$paginazione .= "]";
-	
-	// in questa cella inseriamo la paginazione
-	echo "$paginazione";
-	
 	?>
+	
+	<fieldset id="pagination">
+			<?php 	// in questa cella inseriamo la paginazione
+				echo "$paginazione";
+			?>
+	</fieldset>
 </ul>
 
 <?php 

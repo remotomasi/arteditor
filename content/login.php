@@ -9,6 +9,7 @@
     <fieldset id="actions">
 		<header>
 			<h4>Login</h4>
+			<p />
 		</header>
 		<form action="index.php?page=1" method="post" id="maint" name="maint">
 	   		<input id="username" name="username" type="text" placeholder="Username" autofocus required>

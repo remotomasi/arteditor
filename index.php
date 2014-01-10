@@ -15,7 +15,9 @@ require_once "includes/classes/articolo.php";
 ?>
 
 <?php 
-	if ((!isset($_GET['page'])) ||  (!is_numeric($_GET['page']))) {
+	if ((!isset($_GET['page'])) ||  (!is_numeric($_GET['page'])) 
+		/*|| (!isset($_GET['idArticolo'])) || (!is_numeric($_GET['idArticolo'])) */
+		) {
 		header("Location: ../arteditor/index.php?page=1");
 	}	
 ?>
