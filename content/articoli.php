@@ -125,10 +125,10 @@ $items = Articolo::getArticoliPerPagina($primo, $perPage);
 			
 			<p class="contentArt"><?php echo htmlspecialchars($item->getContenuto()); ?></p>
 			<?php if (isset($_SESSION['nome']) && (isset($_SESSION['level']) && $_SESSION['level'] == '1')) {?>
-			<a href="" onclick="modifica(<?php echo $art['id_articolo']?>, '<?php echo $item->getTitolo();?>', '<?php echo $item->getContenuto();?>'); return false;">Edit</a> ||
+			<p><a href="" onclick="modifica(<?php echo $art['id_articolo']?>, '<?php echo $item->getTitolo();?>', '<?php echo $item->getContenuto();?>'); return false;">Edit</a> ||
 			<a href="" onclick="cancella(<?php echo $art['id_articolo']?>); return false;">Delete</a> ||					
 			<?php } ?>
-			<a href="modify_comment.php?post_id=<?php echo $item->getIDArticolo(); //$art['id_articolo']?>&action=add">Add a comment</a>
+			<a href="modify_comment.php?post_id=<?php echo $item->getIDArticolo(); //$art['id_articolo']?>&action=add">Add a comment</a></p>
 	</li> 
 	<?php endforeach; ?>	
 	
@@ -136,12 +136,20 @@ $items = Articolo::getArticoliPerPagina($primo, $perPage);
 	
 	<?php 
 	
-	$paginazione = "Pagine totali: " . $tot_pages . "[";
+	$paginazione = "Pagine totali: " . $tot_pages . " [";
 	for($i = 1; $i <= $tot_pages; $i++) {
-		if($i == $current_page) {
-			$paginazione .= $i . " ";
-		} else {
-			$paginazione .= "<a href=\"?page=$i\" title=\"Vai alla pagina $i\">$i</a>";
+		if (($i == $current_page) ) {
+			$paginazione .= " " . $i . " ";
+		} else if (($i < $current_page) && ($i == ($current_page -1))) {
+			$paginazione .= " " . "<a href=\"?page=$i\" title=\"Vai alla pagina $i\">$i</a>";
+		} else if (($i > $current_page) && ($i == ($current_page +1))) {
+			$paginazione .= "<a href=\"?page=$i\" title=\"Vai alla pagina $i\">$i</a>" . " ";
+		} else if ($i == $tot_pages) {
+			$ultima = ">>";
+			$paginazione .= "<a href=\"?page=$i\" title=\"Vai alla pagina $i\">$ultima</a>";
+		} else if ($i == 1) {
+			$prima = "<<";
+			$paginazione .= "<a href=\"?page=$i\" title=\"Vai alla pagina $i\">$prima</a>";
 		}
 	}
 	$paginazione .= "]";

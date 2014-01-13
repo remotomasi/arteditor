@@ -145,7 +145,7 @@ div.message {
 nav {
 	margin: 0 0 0 0;
 	padding: 10px; 
-	line-heght: 100%;
+	line-height: 100%;
 	
 	/*border-radius: 2em;
 	-webkit-border-radius: 2em;
@@ -297,8 +297,11 @@ nav ul li{
 }
 
 footer {
+	padding: 10px; 
+	line-height: 100%;
+	
 	background-color: #3b5998;
-	position: relative;	
+	position: absolute;	
 	width: 100%;
 	color: #ffffff;
 	clear: both;
@@ -460,5 +463,6 @@ fieldset {
   }
   
   #pagination {
+  	text-align: center;
   	background: #9999ff;
   }

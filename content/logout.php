@@ -3,6 +3,7 @@
 	    session_start();
 	} // starts new or resumes existing session 
 ?>
+<h3></h3><h3></h3><h3></h3>
 <h3>Logout</h3>
 
 <form action="index.php?page=1" method="post" name="maint" id="maint">
