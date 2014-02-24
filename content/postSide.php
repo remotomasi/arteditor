@@ -22,7 +22,7 @@ if (empty($arts)) {
     <li class="expandButton" ><a href="#">Gennaio</a>
 		<ul id="postSideArt" class="postSideArt">
 		<?php foreach ($items as $i=>$item) : ?>
-			<li><h6><a href="index.php?idArticolo='<?php echo htmlspecialchars($item->getIDArticolo()); ?>'"><?php echo htmlspecialchars($item->getTitolo()); ?></a></h6></li>
+			<li><h6><a href="index.php?page=1&idArticolo='<?php echo htmlspecialchars($item->getIDArticolo()); ?>'"><?php echo htmlspecialchars($item->getTitolo()); ?></a></h6></li>
 		<?php endforeach; ?>
 		</ul>
 	</li>
