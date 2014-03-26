@@ -188,6 +188,7 @@ nav ul li{
 	display: inline; float:left; margin: 0px; 
 	list-style: none;
 }
+
 	nav ul li a {	
 		padding: 13px; 
 		text-decoration: none; 
@@ -197,8 +198,7 @@ nav ul li{
 	}
 		nav ul li a:hover {
 			-moz-box-shadow: 0 -5px 10px #777; 
-			-webkit-box-shadow: 0 -5px 10px #777; 
-			
+			-webkit-box-shadow: 0 -5px 10px #777; 			
 			background: #0099FF;
 			
 			/* background: -webkit-gradient(linear, right bottom, left top, color-stop(0, rgb(59,89,152)), color-stop(0.72, rgb(0,51,102))) !important;

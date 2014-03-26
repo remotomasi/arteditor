@@ -37,7 +37,13 @@ $(function () {
 	};
 	
 	$('.expandButton').click(function (e) {
-		runEffect($(".postSideArt"));
+		$i = $(this).children("ul").attr('id');
+		$cl = $(this).children("ul").attr('class');
+		$oggChild = $(this).children("ul#" + $i);
+		$oggAll = $(this).nextAll("ul#" + $i);
+		$ogg = $("#" + $i);
+		runEffect($oggChild);
+		runEffect($oggAll);
 	});
 	
 	$(this).click(function (e) {

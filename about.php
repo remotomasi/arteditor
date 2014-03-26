@@ -40,7 +40,7 @@
 									<p></p>
 									<p><b>Data di concretizzazione:</b> Agosto 2013</p>	
 									<p></p>
-									<p><b>Ultimo aggiornamento:</b> Novembre 2013</p>							
+									<p><b>Ultimo aggiornamento:</b> Marzo 2014</p>							
 								</fieldset>
 							</header>
 						</article>

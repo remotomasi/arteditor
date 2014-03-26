@@ -82,6 +82,10 @@ class Articolo
     return $this->data_pubblicazione;
   }
 
+  /**
+   * Return ID Articolo
+   * @return int
+   */
   public function getIDArticolo() {
   	return $this->id_articolo;
   }
@@ -382,9 +386,45 @@ class Articolo
 		}
 	}
   }
-  			
+
   /**
-   * 
+   * Ottiene anno e mese di ogni articolo
+   * @return Ambigous <string, Articolo>|boolean
+   */
+  static public function getAnnoMeseArticoli() {
+  	// clear the results
+  	$items = '';
+  	// Get the connection
+  	$connection = Database::getConnection();
+  	// Set up the query
+  	$query = "CALL sp_annoMeseArticoli()";
+
+  	// Run the query
+	$result = '';
+  	$result_obj = $connection->query($query);
+  	
+	if (!$result_obj) {
+		echo "CALL failed: (" . $connection->errno . ") " . $connection->error;
+	}else{
+
+	  	// Loop through getting associative arrays,
+	  	// passing them to a new version of this class,
+	  	// and making a regular array of the objects
+	  	
+	  	try {
+	  		if (mysqli_more_results($connection)) {
+	  			$connection->next_result();
+	  		}
+	  		$result = $connection->query($query);
+	  		return $result;
+		} catch (Exception $e) {
+    		echo 'Eccezione catturata: ',  $e->getMessage(), "\n";
+			return false;
+		}
+  	}
+  }
+  
+  /** 
    * @param integer $idArticolo
    * @return Ambigous <string, Articolo>|boolean
    */
@@ -426,4 +466,5 @@ class Articolo
      }
 	}
   }
+
 }

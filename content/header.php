@@ -6,7 +6,7 @@
 <header>
 	<nav>
 		<ul>
-			<li><h6 id="titoloNav">ArtEditor</h6>
+			<li><h6 id="titoloNav">ArtEditor v0.1</h6>
 			<li><h6><a href="index.php?page=1">Home</a></h6></li>
 			<?php if (isset($_SESSION['nome']) && (isset($_SESSION['level']) && $_SESSION['level'] == '1')) {?>
 			<li><h6><a href="insert.php">Insert</a></h6></li>
