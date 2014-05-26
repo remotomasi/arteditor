@@ -415,8 +415,14 @@ class Utente
       return array('login','Sorry, invalid UserName and/or Password.','');
     } 
     
-    $hash_password = /*hash_hmac('sha512',*/ $item['password'] /*. '!hi#HUde9' . (int) $id, SITE_KEY)*/; 	// eliminata momentaneamente		
+    /*$hash_password = /*hash_hmac('sha512',*/ /*$item['password']*/ /*. '!hi#HUde9' . (int) $id, SITE_KEY)*//*;*/ 	// eliminata momentaneamente		
     																										// la criptazione
+	
+    //$hash_password = hash_hmac('sha512', $item['password'] . '!hi#HUde9' . (int) $id, SITE_KEY); 	// eliminata momentaneamente
+    //																								// la criptazione
+        
+    $hash_password = hash('md5', $item['password']);	// utilizzo della funzione md5 assieme alla funzione hash() invece di hash_hmac
+    
     // Set up the query
     $query = 'SELECT id_utente, nome, cognome, username, level 
       FROM `utente` 
