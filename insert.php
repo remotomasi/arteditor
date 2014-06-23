@@ -1,11 +1,27 @@
+<?php
+/**
+ * insert.php
+ *
+ * Insert file
+ *
+ * @version    0.1 2014-06-23
+ * @package    ArtEditor
+ * @copyright  Copyright (c) 2013 Remo Tomasi
+ * @license    GNU General Public License
+ * @since      Since Release 1.0
+ */
+?>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>ArtEditor - Insert</title>
-<link href="css/main.css" rel="stylesheet" type="text/css" />
-<script language="Javascript" src="js/controllo.js"></script>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>ArtEditor - Insert</title>
+	<link href="css/main.css" rel="stylesheet" type="text/css" />
+	<script language="Javascript" src="js/controllo.js"></script>
+ 	<script type="text/javascript" language="javascript" charset="utf-8" src="js/jquery-1.6.1.min.js"></script>
+ 	<script type="text/javascript" language="javascript" charset="utf-8" src="js/jquery.effects.core.js"></script>
+ 	<script type="text/javascript" language="javascript" charset="utf-8" src="js/jquery.effects.blind.js"></script>
+ 	<script type="text/javascript" language="javascript" charset="utf-8" src="js/nav.js"></script>
 
 </head>
 <body>

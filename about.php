@@ -13,15 +13,18 @@
 ?>
 <!DOCTYPE html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>ArtEditor - About</title>
-<link href="css/main.css" rel="stylesheet" type="text/css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>ArtEditor - About</title>
+	<link href="css/main.css" rel="stylesheet" type="text/css" />
+ 	<script type="text/javascript" language="javascript" charset="utf-8" src="js/jquery-1.6.1.min.js"></script>
+ 	<script type="text/javascript" language="javascript" charset="utf-8" src="js/jquery.effects.core.js"></script>
+ 	<script type="text/javascript" language="javascript" charset="utf-8" src="js/jquery.effects.blind.js"></script>
+ 	<script type="text/javascript" language="javascript" charset="utf-8" src="js/nav.js"></script>
 </head>
 <html>
 	<body>
 		<div id="container">
-		<?php include 'content/header.php'; ?>
-					
+			<?php include 'content/header.php'; ?>
 			<div id="content">
 				<div id="mainContent">		
 					<section>

@@ -14,7 +14,7 @@
 			<?php if (isset($_SESSION['nome'])) {?>
 			<li><h6><a href="delete.php">Delete</a></h6></li>
 			<?php } ?>
-			<li><h6><a href="#">Contatti</a></h6></li>
+			<li><h6><a href="contatti.php">Contatti</a></h6></li>
 			<li><h6><a href="about.php">About</a></h6></li>
 			<?php if (isset($_SESSION['nome'])) {?>
 			<li><h6><a href="exit.php">Logout</a></h6></li>
