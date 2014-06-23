@@ -31,9 +31,9 @@
 			<?php 
 				} else {
 			?>
-			<p><b>Utente:</b>
+			<!-- <p><b>Utente:</b> -->
 			<?php 
-				echo $_SESSION['nome'] . ' ' . $_SESSION['cognome'];
+				//echo $_SESSION['nome'] . ' ' . $_SESSION['cognome'];
 			?>
 			<?php 
 				}

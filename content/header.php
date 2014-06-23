@@ -19,13 +19,13 @@
 			<?php if (isset($_SESSION['nome'])) {?>
 			<li><h6><a href="exit.php">Logout</a></h6></li>
 			<?php } ?>
-			<li><p><?php
+			<li><h6 id="username"><?php
 				if (isset($_SESSION['nome'])) {
-					$_SESSION['nome'] . ' ' . $_SESSION['cognome'];
+					echo $_SESSION['nome']; //. ' ' . $_SESSION['cognome'];
 				} else {
 
 				}
-			?><p></li>
+			?></h6></li>
 		</ul>
 	</nav>
 </header>

@@ -56,7 +56,7 @@ require_once "includes/classes/articolo.php";
 		<?php include "content/login.php"; ?>
 	        <fieldset id="inputs">
 				<header>
-					<h4>Post Vari</h4>
+					<h4>Crono Post</h4>
 				</header>
 				<div id="postSide">
 					<?php include 'content/postSide.php';?>

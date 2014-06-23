@@ -302,10 +302,10 @@ class Articolo
 	  	// and making a regular array of the objects
 	  	
 	  	try {
-	  		if (mysqli_more_results($connection)) {
+	  		/*if (mysqli_more_results($connection)) {
   				$connection->next_result();
 	  		}
-			$result = $connection->query($query);
+			$result = $connection->query($query);*/
 			return $result;
 	  	}catch (Exception $e) {
 			return false;		

@@ -48,7 +48,7 @@ if (empty($arts)) {
 ?>
 
 <?php 
-	if (!empty($_GET['idArticolo'])) : ?>
+	if (!empty($_GET['idArticolo'])) : // selezione di un articolo ?>	
 	<?php 
 		$id = $_GET['idArticolo'];
 		$articolo = Articolo::getArticoloByID($id);
@@ -63,20 +63,20 @@ if (empty($arts)) {
 		foreach ($arts as $art) {
 			echo '<i><b>' . $art['Cognome'] . ' ' . $art['Nome'] . '</b></i>';
 		}
-			}else{
-			echo "Vuoto!";
-		}
+	}else{
+		echo "Vuoto!";
+	}
 									
 ?></p>
 
-<p class="contentArt"><?php echo htmlspecialchars($articolo->getContenuto()); ?></p>
-<?php if (isset($_SESSION['nome']) && (isset($_SESSION['level']) && $_SESSION['level'] == '1')) {?>
-<a href="" onclick="modifica(<?php echo $art['id_articolo']?>, '<?php echo $articolo->getTitolo();?>', '<?php echo $articolo->getContenuto();?>'); return false;">Edit</a> ||
-<a href="" onclick="cancella(<?php echo $art['id_articolo']?>); return false;">Delete</a> ||					
-<?php } ?>
-<a href="modify_comment.php?post_id=<?php echo $articolo->getIDArticolo(); //$art['id_articolo']?>&action=add">Add a comment</a>
+	<p class="contentArt"><?php echo htmlspecialchars($articolo->getContenuto()); ?></p>
+	<?php if (isset($_SESSION['nome']) && (isset($_SESSION['level']) && $_SESSION['level'] == '1')) {?>
+	<p><a href="" onclick="modifica(<?php echo $art['id_articolo']?>, '<?php echo $articolo->getTitolo();?>', '<?php echo $articolo->getContenuto();?>'); return false;">Edit</a> ||
+	<a href="" onclick="cancella(<?php echo $art['id_articolo']?>); return false;">Delete</a> ||					
+	<?php } ?>
+	<a href="modify_comment.php?post_id=<?php echo $articolo->getIDArticolo(); //$art['id_articolo']?>&action=add">Add a comment</a></p>
 
-<?php 	else:	
+<?php 	else:						// visualizza tutta la lista degli articoli	
 
 // numero totale di articoli
 $countArt = Articolo::getCountArticoli();
